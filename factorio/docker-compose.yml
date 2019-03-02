@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  factorio:
+    container_name: 'factorio'
+    image: dtandersen/factorio:latest
+    volumes:
+      - /docker-volumes/factorio:/factorio
+    ports:
+      - "34197:34197/udp"
+      - "27015:27015/tcp"
+    networks:
+      - docker-network
+    restart: always
+
+networks:
+  docker-network:
+    driver: bridge

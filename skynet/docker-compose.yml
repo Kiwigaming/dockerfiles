@@ -1,0 +1,18 @@
+version: '3.3'
+
+services:
+  skynet:
+    container_name: 'skynet'
+    build:
+      context: ./image
+      dockerfile: Dockerfile
+      args:
+        public_url: /skynet
+    image: local/skynet:latest
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: reverseproxy_default
